@@ -28,7 +28,20 @@ function Turn () {
 function Continue () {
   return (
     <div>
-      
+
+    </div>
+  );
+}
+
+function Footer() {
+  return (
+    <div className="row" id="footer">
+      <div className="col-12">
+        <p className="text-muted credit">
+          All images are from <a href="https://commons.wikimedia.org/wiki/Main_Page">
+            wikimedia commons</a> and are in the public domain
+        </p>
+      </div>
     </div>
   );
 }
@@ -41,6 +54,7 @@ class AuthorQuiz extends Component {
           <Hero />
           <Turn />
           <Continue />
+          <Footer />
         </div>
         {/*
         <h1>Below is for self-study</h1>
