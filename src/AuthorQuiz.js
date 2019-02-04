@@ -16,13 +16,17 @@ function Hero () {
   </div>);
 }
 
-function Turn () {
+function Turn ({author, books}) {
   return (
-    <div className="row">
-
-
+    <div className="row turn" sytle={{backgroundColor:"white"}} >
+      <div className="col-4 offset-1"> 
+        <image scr={author.imageUrl} className="authorImage" alt="Author"/>
+      </div>
+      <div className="col-6">
+       {books.map((title) => <p>{title}</p>)}
+      </div>
     </div>
-  );
+  ); 
 }
 
 function Continue () {
