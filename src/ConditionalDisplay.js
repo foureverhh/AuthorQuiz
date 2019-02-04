@@ -19,8 +19,10 @@ class ConditionalDisplay extends Component {
     }
 
     changeColor(){
-        const newColor = this.state.color === green ? yellow : green;
-        this.setState ({color: newColor});
+        setInterval(() => {
+            const newColor = this.state.color === green ? yellow : green;
+            this.setState ({color: newColor});
+        },3000);
     }
 
     render () {
@@ -30,11 +32,11 @@ class ConditionalDisplay extends Component {
                 <p>Show sum value now is {this.state.showSum.toString()}</p>
                 <Sum isVisible={this.state.showSum} a={10} b={10}/>
                 <button onClick={this.changeColor}>Change color</button>
-              
                 <p>{this.state.showSum}</p>
             </div>
         );
-    }ß
+    }
+
 }
 
 export default ConditionalDisplay;
