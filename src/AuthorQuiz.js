@@ -1,4 +1,4 @@
-import React, { Component} from 'react';
+import React from 'react';
 //import logo from './logo.svg';
 import './App.css';
 import './bootstrap.min.css';
@@ -20,10 +20,10 @@ function Turn ({author, books}) {
   return (
     <div className="row turn" sytle={{backgroundColor:"white"}} >
       <div className="col-4 offset-1"> 
-        <image scr={author.imageUrl} className="authorImage" alt="Author"/>
+        <img src={author.imageUrl} className="authorimage" alt="Author" />
       </div>
       <div className="col-6">
-       {books.map((title) => <p>{title}</p>)}
+       {books.map((title,index) => <p key={index}>{title}</p>)}
       </div>
     </div>
   ); 
@@ -49,14 +49,12 @@ function Footer() {
     </div>
   );
 }
-class AuthorQuiz extends Component {
-
-  render() {
+function AuthorQuiz ({turnData}) {
     return (
       <div>
         <div className="container-fluid">
           <Hero />
-          <Turn />
+          <Turn {...turnData}/>
           <Continue />
           <Footer />
         </div>
@@ -69,7 +67,7 @@ class AuthorQuiz extends Component {
         */}
       </div>
     );
-  }
 }
+
 
 export default AuthorQuiz;
