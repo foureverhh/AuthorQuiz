@@ -16,6 +16,13 @@ function Hero () {
   </div>);
 }
 
+function Book ({title}){
+  return(
+    <div className="answer">
+      <h4>{title}</h4>
+    </div>
+  );
+}
 function Turn ({author, books}) {
   return (
     <div className="row turn" sytle={{backgroundColor:"white"}} >
@@ -23,7 +30,7 @@ function Turn ({author, books}) {
         <img src={author.imageUrl} className="authorimage" alt="Author" />
       </div>
       <div className="col-6">
-       {books.map((title,index) => <p key={index}>{title}</p>)}
+       {books.map((title) => <Book title={title} key={title} />)}
       </div>
     </div>
   ); 
