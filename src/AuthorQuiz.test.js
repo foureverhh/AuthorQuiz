@@ -7,7 +7,7 @@ Enzyme.configure({adapter: new Adapter()});
 
 const state = {
   turnData: {
-    books:['The shining','IT','David Copperfield','A Tale of Two Cities'],
+    books:['The Shining','IT','David Copperfield','A Tale of Two Cities'],
     author: {
       name: 'Charles Dickens',
       imageUrl: 'images/authors/charlesdickens.jpg',
@@ -67,6 +67,10 @@ describe('Author Quiz',()=>{
     
     it("onAnswerSelected should be called", ()=>{
       expect(handleAnswerSelected).toHaveBeenCalled();
+    });
+
+    it("should receive The Shining", ()=>{
+      expect(handleAnswerSelected).toHaveBeenCalledWith('The Shining');
     });
   });
 
