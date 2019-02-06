@@ -16,14 +16,14 @@ function Hero () {
   </div>);
 }
 
-function Book ({title}){
+function Book ({title, onClick}){
   return(
-    <div className="answer">
+    <div className="answer" onClick={()=>{onClick(title);}}>
       <h4>{title}</h4>
     </div>
   );
 }
-function Turn ({author, books, highlight}) {
+function Turn ({author, books, highlight, onAnswerSelected}) {
   function changeBackgrundColor(highlight) {
     const mapping = {
       'none':'',
@@ -39,7 +39,7 @@ function Turn ({author, books, highlight}) {
         <img src={author.imageUrl} className="authorimage" alt="Author" />
       </div>
       <div className="col-6">
-       {books.map((title) => <Book title={title} key={title} />)}
+       {books.map((title) => <Book title={title} key={title} onClick={onAnswerSelected}/>)}
       </div>
     </div>
   ); 
@@ -65,12 +65,12 @@ function Footer() {
     </div>
   );
 }
-function AuthorQuiz ({turnData, highlight}) {
+function AuthorQuiz ({turnData, highlight, onAnswerSelected}) {
     return (
       <div>
         <div className="container-fluid">
           <Hero />
-          <Turn {...turnData} highlight={highlight}/>
+          <Turn {...turnData} highlight={highlight} onAnswerSelected={onAnswerSelected}/>
           <Continue />
           <Footer />
         </div>
