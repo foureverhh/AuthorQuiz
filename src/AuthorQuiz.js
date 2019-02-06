@@ -5,6 +5,7 @@ import './bootstrap.min.css';
 //import Counter from './ClickCounter';
 //import Sum from './Sum';
 //import ConditionalDisplay from './ConditionalDisplay';
+import PropTypes from 'prop-types';
 
 function Hero () {
   return (
@@ -23,6 +24,7 @@ function Book ({title, onClick}){
     </div>
   );
 }
+
 function Turn ({author, books, highlight, onAnswerSelected}) {
   function changeBackgrundColor(highlight) {
     const mapping = {
@@ -33,6 +35,7 @@ function Turn ({author, books, highlight, onAnswerSelected}) {
     console.log(mapping[highlight]);
     return mapping[highlight];
   }
+  
   return (
     <div className="row turn" style={{backgroundColor:changeBackgrundColor(highlight)}} >
       <div className="col-4 offset-1"> 
@@ -42,8 +45,20 @@ function Turn ({author, books, highlight, onAnswerSelected}) {
        {books.map((title) => <Book title={title} key={title} onClick={onAnswerSelected}/>)}
       </div>
     </div>
-  ); 
+  );  
 }
+
+Turn.propTypes = {
+  anthor: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string.isRequired,
+    imageSource: PropTypes.string.isRequired,
+    books: PropTypes.arrayOf(PropTypes.string).isRequired
+  }),
+  books: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onAnswerSelected: PropTypes.func.isRequired,
+  highlight: PropTypes.string.isRequired
+};
 
 function Continue () {
   return (
