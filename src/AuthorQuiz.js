@@ -23,9 +23,18 @@ function Book ({title}){
     </div>
   );
 }
-function Turn ({author, books}) {
+function Turn ({author, books, highlight}) {
+  function changeBackgrundColor(highlight) {
+    const mapping = {
+      'none':'',
+      'correct':'green',
+      'wrong':'red'
+    }
+    console.log(mapping[highlight]);
+    return mapping[highlight];
+  }
   return (
-    <div className="row turn" sytle={{backgroundColor:"white"}} >
+    <div className="row turn" style={{backgroundColor:changeBackgrundColor(highlight)}} >
       <div className="col-4 offset-1"> 
         <img src={author.imageUrl} className="authorimage" alt="Author" />
       </div>
@@ -56,12 +65,12 @@ function Footer() {
     </div>
   );
 }
-function AuthorQuiz ({turnData}) {
+function AuthorQuiz ({turnData, highlight}) {
     return (
       <div>
         <div className="container-fluid">
           <Hero />
-          <Turn {...turnData}/>
+          <Turn {...turnData} highlight={highlight}/>
           <Continue />
           <Footer />
         </div>

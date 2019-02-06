@@ -57,7 +57,8 @@ function getTurnData(authors) {
 }
 
 const state = {
-     turnData: getTurnData(authors)
+     turnData: getTurnData(authors),
+     highlight: 'wrong'
      /*
      turnData:{
           author: authors[0],
