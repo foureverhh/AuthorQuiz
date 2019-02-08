@@ -6,6 +6,7 @@ import './bootstrap.min.css';
 //import Sum from './Sum';
 //import ConditionalDisplay from './ConditionalDisplay';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 function Hero () {
   return (
@@ -87,6 +88,7 @@ function AuthorQuiz ({turnData, highlight, onAnswerSelected}) {
           <Hero />
           <Turn {...turnData} highlight={highlight} onAnswerSelected={onAnswerSelected}/>
           <Continue />
+          <p><Link to="/add"/>Add an anthor</p>
           <Footer />
         </div>
         {/*
