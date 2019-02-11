@@ -5,7 +5,7 @@ import AuthorQuiz from './AuthorQuiz';
 import * as serviceWorker from './serviceWorker';
 import {shuffle,sample} from 'underscore';
 import {BrowserRouter, Route} from 'react-router-dom';
-
+import AddAuthorForm from './AddAuthorForm.js';
 const authors = [
      {
           name:'Mark Twain',
@@ -74,14 +74,7 @@ function onAnswerSelected(answer){
      render();
 }
 
-function AddAuthorForm({match}) {
-     return (
-          <div>
-               <h1>Add Author</h1>
-               <p>{JSON.stringify(match)}</p>
-          </div>
-     );
-}
+
 
 function App(){
      return <AuthorQuiz {...state} onAnswerSelected={onAnswerSelected}/>;

@@ -88,7 +88,7 @@ function AuthorQuiz ({turnData, highlight, onAnswerSelected}) {
           <Hero />
           <Turn {...turnData} highlight={highlight} onAnswerSelected={onAnswerSelected}/>
           <Continue />
-          <p><Link to="/add"/>Add an anthor</p>
+          <p><Link to="/add" >Add an anthor</Link></p>
           <Footer />
         </div>
         {/*
