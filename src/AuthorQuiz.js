@@ -7,6 +7,7 @@ import './bootstrap.min.css';
 //import ConditionalDisplay from './ConditionalDisplay';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import {connect} from 'react-redux';
 
 function Hero () {
   return (
@@ -86,7 +87,27 @@ function Footer() {
     </div>
   );
 }
-function AuthorQuiz ({turnData, highlight, onAnswerSelected, onContinue}) {
+
+function mapStateToProps(state){
+  return {
+    turnData: state.turnData,
+    highlight: state.highlight
+  };
+}
+
+function mapDispatchToProps(dispatch){
+  return {
+    onAnswerSelected: (answer) => {
+      dispatch({type: 'ANSWER_SELECETED',answer});
+    },
+    onContinue: () => {
+      dispatch({type: 'CONTINUE'});
+    }
+  }
+}
+
+const AuthorQuiz = connect(mapStateToProps, mapDispatchToProps)(
+  function ({turnData, highlight, onAnswerSelected, onContinue}) {
     return (
       <div>
         <div className="container-fluid">
@@ -105,7 +126,7 @@ function AuthorQuiz ({turnData, highlight, onAnswerSelected, onContinue}) {
         */}
       </div>
     );
-}
-
+  }
+)
 
 export default AuthorQuiz;

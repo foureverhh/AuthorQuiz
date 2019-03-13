@@ -9,6 +9,7 @@ import AddAuthorForm from './AddAuthorForm.js';
 import * as Redux from 'redux';
 import * as ReactRedux from 'react-redux';
 
+
 const authors = [
      {
           name:'Mark Twain',
@@ -84,14 +85,7 @@ let store = Redux.createStore(reducer);
 function App(){
      return (
      <ReactRedux.Provider store={store}>
-          <AuthorQuiz {...state} 
-          onAnswerSelected={onAnswerSelected}
-          onContinue={()=>{
-               state=resetState();
-               render();
-          }}
-
-          />
+          <AuthorQuiz />
           </ReactRedux.Provider>);
 }
 
