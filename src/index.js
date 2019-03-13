@@ -6,6 +6,8 @@ import * as serviceWorker from './serviceWorker';
 import {shuffle,sample} from 'underscore';
 import {BrowserRouter, Route, withRouter} from 'react-router-dom';
 import AddAuthorForm from './AddAuthorForm.js';
+import * as Redux from 'redux';
+import * as ReactRedux from 'react-redux';
 
 const authors = [
      {
@@ -73,14 +75,24 @@ function resetState (){
      }
 }
 
+function reducer(state, action){
+     return state;
+}
+
+let store = Redux.createStore(reducer);
+
 function App(){
-     return <AuthorQuiz {...state} 
+     return (
+     <ReactRedux.Provider store={store}>
+          <AuthorQuiz {...state} 
           onAnswerSelected={onAnswerSelected}
           onContinue={()=>{
                state=resetState();
                render();
           }}
-          />;
+
+          />
+          </ReactRedux.Provider>);
 }
 
 const AuthorWrapper = withRouter(({history})=>
