@@ -1,5 +1,11 @@
 import React from 'react';
 import "./AddAuthorForm.css";
+<<<<<<< HEAD
+=======
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+
+>>>>>>> 0c96bae918e4270fd06aa9680c78f781c7dbfb6e
 
 class AuthorForm extends React.Component {
 

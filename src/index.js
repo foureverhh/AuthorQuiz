@@ -4,7 +4,7 @@ import './index.css';
 import AuthorQuiz from './AuthorQuiz';
 import * as serviceWorker from './serviceWorker';
 import {shuffle,sample} from 'underscore';
-import {BrowserRouter, Route, withRouter} from 'react-router-dom';
+import {BrowserRouter, Route} from 'react-router-dom';
 import AddAuthorForm from './AddAuthorForm.js';
 import * as Redux from 'redux';
 import * as ReactRedux from 'react-redux';
