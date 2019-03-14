@@ -70,6 +70,8 @@ function reducer(
                     return Object.assign({}, state, {highlight: isCorrect ? 'correct' : 'wrong' });
                case 'CONTINUE' :
                     return Object.assign({}, state, {hightlight: '', turnData: getTurnData(state.authors)});
+               case 'ADD_AUTHOR' :
+                    return ({...state, authors: [...state.authors, action.author] });
                default:
                     return state;
           }
@@ -77,29 +79,16 @@ function reducer(
 
 let store = Redux.createStore(reducer);
 
-function App(){
-     return (
-     <ReactRedux.Provider store={store}>
-          <AuthorQuiz />
-          </ReactRedux.Provider>);
-}
-
-const AuthorWrapper = withRouter(({history})=>
-     <AddAuthorForm onAddAuthor={ (author) =>{
-               authors.push(author);
-               history.push("/");
-     }} />   
-);
-
-
 ReactDOM.render(
      <BrowserRouter>
-          <React.Fragment>
-               <Route exact path="/" component={App} />
-               <Route path="/add" component={AuthorWrapper} />
-          </React.Fragment>    
+          <ReactRedux.Provider store={store}>
+               <React.Fragment>
+                    <Route exact path="/" component={AuthorQuiz} />
+                    <Route path="/add" component={AddAuthorForm} />
+               </React.Fragment>  
+          </ReactRedux.Provider>  
      </BrowserRouter>,
-          document.getElementById('root'));
+     document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
