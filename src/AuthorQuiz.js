@@ -30,7 +30,7 @@ function Book ({title, onClick}){
 function Turn ({author, books, highlight, onAnswerSelected}) {
   function changeBackgrundColor(highlight) {
     const mapping = {
-      'none':'',
+      'none':' ',
       'correct':'green',
       'wrong':'red'
     }

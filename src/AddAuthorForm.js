@@ -2,7 +2,7 @@ import React from 'react';
 import "./AddAuthorForm.css";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { POINT_CONVERSION_COMPRESSED } from 'constants';
+
 
 class AuthorForm extends React.Component {
 
